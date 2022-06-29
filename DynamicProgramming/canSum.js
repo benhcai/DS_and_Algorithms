@@ -1,12 +1,17 @@
-function canSum(target, array, seen={}) {
-  num = array.pop()
-  rem = Math.abs(target - num)
-  if (num < target && rem in array) return true
-  if (array.length === 0) return false
-  seen[rem] = num
-  return canSum(target, array, seen) 
+function canSum(target, array, seen = {}) {
+  if (target === 0) return true;
+
+  for (num of array) {
+    rem = target - num;
+    console.log(num, rem);
+    if (rem < 0) continue;
+    return canSum(rem, array, seen);
+  }
+
+  return false;
 }
 
-array = [1, 2, 5, 8, 4, 7, 11]
-target = 10
-console.log(canSum(target, array))
+array = [2, 3, 4];
+target = 8;
+console.log(canSum(target, array));
+
