@@ -6,3 +6,4 @@ function fibonacci(n, memo={}) {
 }
 
 console.log(fibonacci(10))
+console.log(fibonacci(15))

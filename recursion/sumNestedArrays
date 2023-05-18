@@ -1,0 +1,14 @@
+let sumNestedArrays = (array) => {
+  let sum = 0;
+
+  const recur = (array) => {
+    for (const el of array) {
+      if (Array.isArray(el) === false) sum = sum + el;
+      else recur(el);
+    }
+  };
+
+  recur(array);
+  return sum;
+};
+console.log(sumNestedArrays([1, [2, [3, 4, 5]]]));
